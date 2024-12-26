@@ -37,7 +37,21 @@
       2024 jaewon - All rights reserved
     </p>
   </footer>
+<script>
+  const btn = document.getElementById('addBtn');
+  const form_method = document.getElementById('add_form');
 
+  btn.addEventListener('click', function() {
+    {% if user.is_anonymous %}
+      if (confirm('로그인 후 이용 가능합니다. 로그인 하시겠습니까?')) {
+        form_method.method = "post";
+      }
+      else {
+        form_method.method = "get";
+      }
+    {% endif %}
+  })
+</script>
 <script src="{% static 'main.js' %}?after"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <section id="add-todo">
   <h1>ToDoList</h1>
   <div id="inputField">
-    <form action="{% url 'todolists:index' %}" method="post">
+    <form id= "add_form" action="{% url 'todolists:index' %}" method="post">
       {% csrf_token %}
       <input name="content" id="todoInput" placeholder="할 일 추가하기" autocomplete="off">
       <button type="submit" id="addBtn">+</button>
