@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}?after">
+</head>
+<body>
+  <header class="header">
+    <nav class="header__nav-item">
+      <ul>
+        <li class="header__nav-item">
+          <a href="">내정보</a>
+        </li>
+        <li class="header__nav-item">
+          {% if user.is_authenticated %}
+          <a href="{% url 'common:logout' %}">로그아웃</a>
+          {% else %}
+          <a href="{% url 'common:login' %}">로그인</a>
+          {% endif %}
+        </li>
+        <li class="header__nav-item">
+          <a href="">회원가입</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+      {% block content %}
+      {% endblock %}
+  </main>
+  <footer>
+    <h1 class="sr-only">Copyright</h1>
+    <p>
+      2024 jaewon - All rights reserved
+    </p>
+  </footer>
+
+<script src="{% static 'main.js' %}?after"></script>
+</body>
+</html>

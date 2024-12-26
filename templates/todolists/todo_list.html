@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{%block content %}
+<section id="add-todo">
+  <h1>ToDoList</h1>
+  <div id="inputField">
+    <form action="{% url 'todolists:index' %}" method="post">
+      {% csrf_token %}
+      <input name="content" id="todoInput" placeholder="할 일 추가하기" autocomplete="off">
+      <button type="submit" id="addBtn">+</button>
+    </form>
+  </div>
+</section>
+<section id="list">
+{% if todo_list %}
+  <ul>
+    {% for todo in todo_list %}
+    <div class="todo-container">
+      <li class="todo_array">
+        <input type="checkbox" id="{{ todo.id }}" class="chbox">
+        <span class="check-icon" aria-hidden="true"></span>
+        <label class="todo_label" for="{{ todo.id }}">{{ todo.content }}</label>
+        <a href="{% url 'todolists:todo_delete' todo.id  %}" class="deltodo">
+          <img src="../../static/images/delBtn.svg" alt="삭제" class="delBtn">
+        </a>
+      </li>
+    </div>
+    
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="endtodo">오늘 할일을 추가해 보세요</p>
+{% endif %}
+</section>
+{% endblock %}

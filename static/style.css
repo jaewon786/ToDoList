@@ -1,0 +1,65 @@
+@import url('./styles/todolists.css');
+@import url('./styles/main.css');
+@import url('./styles/footer.css');
+@import url('./styles/login.css');
+
+body {
+  margin: 0;
+}
+
+ol, ul {
+  margin: 0;
+  padding: 0;
+	list-style: none;
+}
+
+a {
+
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  display: flex;
+  top: 0;
+  height: 72px;
+  justify-content: right;
+  align-items: center;
+  background-color:mediumslateblue;
+  color: white;
+}
+
+.header__nav-item {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.header__nav-item a {
+  height: 72px;
+  line-height: 72px
+}
+
+.header__nav-item {
+  display: inline-block;
+  position: relative;
+}
+
+.header__nav-item:last-child {
+  margin-right: 1em;
+}
+
+.header__nav-item a {
+  padding: 0 0.8em;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}

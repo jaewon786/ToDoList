@@ -1,0 +1,59 @@
+main {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+#add-todo {
+  position: absolute;
+  top: 40px;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 30px;
+}
+
+#inputField {
+  margin-top: 10px;
+}
+
+#todoInput {
+  width: 240px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#todoInput:focus {
+  outline: none;
+}
+
+#addBtn {
+  width: 37px;
+  height: 37px;
+  border: none;
+  font-size: 30px;
+  color: white;
+  background-color:cornflowerblue;
+  border-radius: 4px;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: box-shadow 0.2s;
+}
+
+#addBtn:active {
+  background-color: rgb(92, 124, 183);
+}
+
+#addBtn:hover {
+  box-shadow: 2px 4px 8px 0px #00000040;
+}
+
+#list {
+  position: absolute;
+  top: 130px;
+}
+
