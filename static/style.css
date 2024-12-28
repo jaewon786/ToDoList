@@ -2,6 +2,14 @@
 @import url('./styles/main.css');
 @import url('./styles/footer.css');
 @import url('./styles/login.css');
+@import url('./styles/signup.css');
+
+@font-face {
+  font-family: 'TheJamsil5Bold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
 
 body {
   margin: 0;
@@ -14,9 +22,16 @@ ol, ul {
 }
 
 a {
-
   text-decoration: none;
   color: inherit;
+}
+
+label {
+  font-family: 'TheJamsil5Bold', sans-serif;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 8px;
+  color: #fff;
 }
 
 .header {

@@ -69,11 +69,6 @@ p {
   border-bottom: 1.7px solid gray;
 }
 
-label {
-  font-family: 'TheJamsil5Bold', sans-serif;
-  cursor: pointer;
-}
-
 [type="checkbox"]:checked + .check-icon {
   border-color:  rgb(64, 193, 225);
   background-color: rgb(64, 193, 225);
