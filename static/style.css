@@ -3,6 +3,7 @@
 @import url('./styles/footer.css');
 @import url('./styles/login.css');
 @import url('./styles/signup.css');
+@import url('./styles/information.css');
 
 @font-face {
   font-family: 'TheJamsil5Bold';
@@ -60,7 +61,7 @@ label {
 }
 
 .header__nav-item:last-child {
-  margin-right: 1em;
+  margin-right: 10px;
 }
 
 .header__nav-item a {

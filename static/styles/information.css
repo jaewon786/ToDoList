@@ -1,0 +1,26 @@
+#information-container {
+  position: absolute;
+  top: 100px;
+}
+
+#completed-work-box {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 80px;
+  background-color: rgb(187, 128, 255);
+  border-radius: 15px;
+}
+
+#pending-work-box {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 80px;
+  background-color: rgb(187, 128, 255);
+  border-radius: 15px;
+}

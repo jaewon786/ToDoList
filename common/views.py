@@ -19,3 +19,9 @@ def signup(request):
   else:
     form = UserForm()
   return render(request, 'common/signup.html', {'form': form})
+
+def information(request):
+  user = request.user
+  info = {'user':user}
+  return render(request, 'common/information.html', info)
+    
