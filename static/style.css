@@ -13,7 +13,15 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
+  height: 100vh; 
+  overflow: hidden;
+}
+
+main {
+  flex-grow: 1;
 }
 
 ol, ul {
@@ -37,12 +45,23 @@ label {
 
 .header {
   display: flex;
-  top: 0;
   height: 72px;
-  justify-content: right;
+  justify-content: space-between;
   align-items: center;
   background-color:mediumslateblue;
   color: white;
+}
+
+.logo-box {
+  display: inline-block;
+  width: 140px;
+  margin-left: 16px;
+  text-align: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px; 
 }
 
 .header__nav-item {
@@ -51,9 +70,9 @@ label {
 }
 
 .header__nav-item a {
-  height: 72px;
   line-height: 72px
 }
+
 
 .header__nav-item {
   display: inline-block;
@@ -78,4 +97,57 @@ label {
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
 	border-width: 0;
+}
+
+.menuBtn {
+  background-color: inherit;
+  border: none;
+  padding: 0 16px;
+  height: 72px;
+  display: none;
+  cursor: pointer;
+}
+
+.menuImg {
+  padding: 0;
+  width: 30px;
+  height: 27px;
+}
+
+#slide-container {
+  width: 100%;
+  transition: 10s;
+  display: none;
+}
+
+#slide-container.active {
+  display: block;
+}
+
+.slide {
+  text-align: center;
+  background-color: rgb(146, 127, 251)
+}
+
+.slide ul li:not(:first-child)  {
+  border-top: 2px solid mediumslateblue;
+}
+
+.mobile-menu {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+}
+
+@media (max-width: 769px) {
+  .header__nav-item {
+    display: none;
+  }
+  .menuBtn {
+    display: block;
+  }
+  .logo-box {
+    margin-left: calc(50% - 70px);
+  }
 }

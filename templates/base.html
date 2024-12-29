@@ -9,6 +9,13 @@
 </head>
 <body>
   <header class="header">
+    <div class="logo-box">
+      <a href="{% url 'todolists:index' %}">
+        <span class="logo">
+          TO DO LIST
+        </span>
+      </a>
+    </div>
     <nav class="header__nav-item">
       <ul>
         <li class="header__nav-item">
@@ -28,7 +35,31 @@
         </li>
       </ul>
     </nav>
+    <button class="menuBtn">
+      <img class="menuImg" src="../../static/images/menuBtn.svg" alt="menuBtn">
+    </button>
   </header>
+  <div id="slide-container">
+    <div class="slide">
+      <ul>
+        {% if user.is_authenticated %}
+        <li class="mobile-menu">  
+          <a href="{% url 'common:information' %}">내정보</a>
+        </li>
+        {% endif %}
+        <li class="mobile-menu">
+          {% if user.is_authenticated %}
+          <a href="{% url 'common:logout' %}">로그아웃</a>
+          {% else %}
+          <a href="{% url 'common:login' %}">로그인</a>
+          {% endif %}
+        </li>
+        <li class="mobile-menu">
+          <a href="{% url 'common:signup' %}">회원가입</a>
+        </li>
+      </ul>
+    </div>
+  </div>
   <main>
       {% block content %}
       {% endblock %}
@@ -52,6 +83,20 @@
         form_method.method = "get";
       }
     {% endif %}
+  })
+
+  const mobileMenuBtn = document.querySelector('.menuBtn');
+  const mobileMenu = document.getElementById('slide-container');
+
+  mobileMenuBtn.addEventListener('click', function() {
+    let isContain = mobileMenu.classList.contains('active');
+
+    if (isContain) {
+      mobileMenu.classList.remove('active');
+    }
+    else {
+      mobileMenu.classList.add('active');
+    }
   })
 </script>
 <script src="{% static 'main.js' %}?after"></script>
