@@ -3,14 +3,16 @@
 <div id="information-container">
   <div id="info-username">아이디 : {{ user.username }}</div>
   <div id="info-useremail">이메일 : {{ user.email }}</div>
-  <div>작업 개요</div>
-  <div id="completed-work-box">
-    <div id="completed-work-count">0</div>
-    <div>완료된 작업</div>
-  </div>
-  <div id="pending-work-box">
-    <div id="pending-work-count">0</div>
-    <div>보류중인 작업</div>
+  <div id="info-work">작업 개요</div>
+  <div id="work">
+    <div id="completed-work-box">
+      <div id="completed-work-count">{{ workedCount }}</div>
+      <div>완료된 작업</div>
+    </div>
+    <div id="pending-work-box">
+      <div id="pending-work-count">{{ workingCount }}</div>
+      <div>보류중인 작업</div>
+    </div>
   </div>
 </div>
 {% endblock %}

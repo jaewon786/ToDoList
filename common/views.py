@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from common.forms import UserForm
+from todolists.models import Todo
 
 def logout_view(request):
     logout(request)
@@ -21,7 +22,9 @@ def signup(request):
   return render(request, 'common/signup.html', {'form': form})
 
 def information(request):
+  workedCount = Todo.objects.filter(author=request.user).filter(completed=True).count
+  workingCount = Todo.objects.filter(author=request.user).filter(completed=False).count
   user = request.user
-  info = {'user':user}
+  info = {'user':user, 'workedCount':workedCount, 'workingCount':workingCount}
   return render(request, 'common/information.html', info)
     

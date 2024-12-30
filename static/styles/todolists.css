@@ -32,12 +32,14 @@ p {
 }
 
 .chbox {
-  width: 2px;
-  height: 2px;
-  margin: 0;
+  width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
   position: absolute;
   vertical-align: middle;
-  left: 10px;
+  left: 12px;
   top: calc(50% - 1px);
 }
 
@@ -69,18 +71,18 @@ p {
   border-bottom: 1.7px solid gray;
 }
 
-[type="checkbox"]:checked + .check-icon {
+.todo_label.com {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+.check-icon.com {
   border-color:  rgb(64, 193, 225);
   background-color: rgb(64, 193, 225);
 }
 
-[type="checkbox"]:checked + .check-icon::before {
+.check-icon.com::before {
   border-color: #fff;
-}
-
-[type="checkbox"]:checked + .check-icon + .todo_label {
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;
 }
 
 .todo_array:hover .delBtn {
@@ -116,6 +118,12 @@ p {
   margin-top: 20px;
   font-size: 25px;
   font-weight: 500;
+}
+
+@media (max-width: 769px) {
+  .delBtn {
+    display: block;
+  }
 }
 
 

@@ -33,3 +33,12 @@ def todo_delete(request, todo_id):
   todo = get_object_or_404(Todo, pk=todo_id)
   todo.delete()
   return redirect('todolists:index')
+
+def todo_complete(request, todo_id):
+  todo = get_object_or_404(Todo, pk=todo_id)
+  if (todo.completed == True):
+    todo.completed = False
+  else:
+    todo.completed = True
+  todo.save()
+  return redirect('todolists:index')

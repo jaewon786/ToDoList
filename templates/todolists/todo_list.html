@@ -5,7 +5,7 @@
   <div id="inputField">
     <form id= "add_form" action="{% url 'todolists:index' %}" method="post">
       {% csrf_token %}
-      <input name="content" id="todoInput" placeholder="할 일 추가하기" autocomplete="off">
+      <input name="content" id="todoInput" placeholder="할 일 추가하기" autocomplete="off" autofocus>
       <button type="submit" id="addBtn">+</button>
     </form>
   </div>
@@ -16,19 +16,43 @@
     {% for todo in todo_list %}
     <div class="todo-container">
       <li class="todo_array">
+        {% if todo.completed == True %}
+        <input type="checkbox" id="{{ todo.id }}" class="chbox">
+        <span class="check-icon com" aria-hidden="true"></span>
+        <label class="todo_label com" for="{{ todo.id }}">
+          <a href="{% url 'todolists:todo_complete' todo.id %}">{{ todo.content }}</a>
+        </label>
+        {% else %}
         <input type="checkbox" id="{{ todo.id }}" class="chbox">
         <span class="check-icon" aria-hidden="true"></span>
-        <label class="todo_label" for="{{ todo.id }}">{{ todo.content }}</label>
-        <a href="{% url 'todolists:todo_delete' todo.id  %}" class="deltodo">
+        <label class="todo_label" for="{{ todo.id }}">
+          <a href="{% url 'todolists:todo_complete' todo.id %}">{{ todo.content }}</a>
+        </label>
+        {% endif %}
+        <a href="{% url 'todolists:todo_delete' todo.id %}" class="deltodo">
           <img src="../../static/images/delBtn.svg" alt="삭제" class="delBtn">
         </a>
       </li>
     </div>
-    
     {% endfor %}
   </ul>
 {% else %}
   <p class="endtodo">오늘 할일을 추가해 보세요</p>
 {% endif %}
 </section>
+<script>
+  const btn = document.getElementById('addBtn');
+  const form_method = document.getElementById('add_form');
+
+  btn.addEventListener('click', function() {
+    {% if user.is_anonymous %}
+      if (confirm('로그인 후 이용 가능합니다. 로그인 하시겠습니까?')) {
+        form_method.method = "post";
+      }
+      else {
+        form_method.method = "get";
+      }
+    {% endif %}
+  })
+</script>
 {% endblock %}

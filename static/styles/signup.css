@@ -14,7 +14,7 @@
   font-size: 32px;
   margin: 0 0 24px;
   padding: 0;
-  color: #fff;
+  color: white;
   text-align: center;
 }
 
@@ -22,7 +22,7 @@
   height: 25px;
   border: none;
   border-radius: 10px;
-  background-color: rgb(241, 236, 255);
+  background-color: white;
   margin-bottom: 8px;
   outline: none;
 }

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class Todo(models.Model):
   author = models.ForeignKey(User, on_delete=models.CASCADE)
   content = models.TextField()
+  completed = models.BooleanField(default=False)
   create_date = models.DateTimeField()
   
   def __str__(self):
